@@ -21,7 +21,7 @@ class ResortScreen extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
-                  center: Alignment(1.2, -0.6),
+                  center: Alignment(1.2, -0.8),
                   radius: 1.2,
                   colors: [
                     Color(0xFF003848),
@@ -38,7 +38,7 @@ class ResortScreen extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
-                  center: Alignment(-1.2, 0.5),
+                  center: Alignment(-2.0, 0.9),
                   radius: 1.2,
                   colors: [
                     Color(0xFF003848),
@@ -125,8 +125,9 @@ class ResortScreen extends StatelessWidget {
                                         Text(
                                           AppStrings.lifestyle,
                                           style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 13,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
                                           ),
                                         ),
                                       ],
@@ -137,37 +138,54 @@ class ResortScreen extends StatelessWidget {
                               const SizedBox(height: 14),
 
                               // Rating, Reviews & Date Row
+                              // Rating, Reviews & Date Row (Matching Figma directly)
+                              // 2. Star, Reviews & Date Row
                               Row(
                                 children: [
-                                  const Icon(Icons.star,
-                                      color: Colors.amber, size: 16),
+                                  const Icon(
+                                    Icons.star,
+                                    color: Colors.white, // White star
+                                    size: 13,
+                                  ),
                                   const SizedBox(width: 4),
                                   const Text(
                                     "4.9",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12,
                                     ),
                                   ),
-                                  const SizedBox(width: 6),
-                                  const Expanded(
-                                    child: Text(
-                                      "${AppStrings.reviewsText} • ",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
+                                  const SizedBox(width: 15),
+                                  Text("|",
                                       style: TextStyle(
                                         color: Colors.grey,
-                                        fontSize: 13,
-                                      ),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      )),
+                                  const SizedBox(width: 15),
+                                  Text(
+                                    "${AppStrings.reviewsText}",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
                                     ),
                                   ),
+                                  const SizedBox(width: 15),
+                                  Text("|",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      )),
+                                  const SizedBox(width: 15),
                                   const Text(
                                     "OCT 24–26",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 11,
+                                      letterSpacing: 0.6,
                                     ),
                                   ),
                                 ],
