@@ -9,4 +9,8 @@ class AppColors {
   static const Color secondaryText = Color(0xFF8E8E93);
   static const Color tagBg = Color(0xFF2C2C30);
   static const Color badgeYellow = Color(0xFFD3A03E);
+  static const Color greyColor = Colors.grey;
+  static const Color transColor = Colors.transparent;
+  static const Color topRightColor = Color(0xFF003848);
+  static const Color bottomLeftColor = Color(0xFF003848);
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:test_assignment/core/app_strings.dart';
 
+import '../core/app_color.dart';
 import '../data/location_data.dart';
 import '../presentation/book_hotel_screen.dart';
 import '../presentation/resort_screen.dart';
@@ -19,7 +21,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
 
   final List<NavTabItem> _navItems = const [
     NavTabItem(title: "Dashboard", icon: Icons.home),
-    NavTabItem(title: "Hotels Resort", icon: Icons.flight_rounded),
+    NavTabItem(title: "Hotels Resort", icon: Icons.flight_outlined),
     NavTabItem(title: "Booking Hotel", icon: Icons.calendar_today_outlined),
     NavTabItem(
       title: "Account",
@@ -53,8 +55,8 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                       -1.0), // Changed -1.2 to 1.2 to position at top-right
                   radius: 1.2,
                   colors: [
-                    Color(0xFF003848),
-                    Colors.transparent,
+                    AppColors.topRightColor,
+                    AppColors.transColor,
                   ],
                   stops: [0.0, 1.0],
                 ),
@@ -70,8 +72,8 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                   center: Alignment(-1.2, 1.0),
                   radius: 1.2,
                   colors: [
-                    Color(0xFF003848),
-                    Colors.transparent,
+                    AppColors.bottomLeftColor,
+                    AppColors.transColor,
                   ],
                   stops: [0.0, 1.0],
                 ),
@@ -97,7 +99,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                 borderRadius: BorderRadius.circular(35),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
+                    color: AppColors.background.withOpacity(0.5),
                     blurRadius: 20,
                     offset: const Offset(0, 8),
                   ),
@@ -115,13 +117,13 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                       padding: EdgeInsets.symmetric(
-                        horizontal: isSelected ? 14 : 10,
-                        vertical: 10,
+                        horizontal: isSelected ? 16 : 8,
+                        vertical: 16,
                       ),
                       decoration: BoxDecoration(
                         color: isSelected
                             ? const Color(0xFF0088FF)
-                            : Colors.transparent,
+                            : AppColors.transColor,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Row(
@@ -134,20 +136,22 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: isSelected
-                                      ? Colors.white
-                                      : Colors.transparent,
+                                      ? AppColors.primaryText
+                                      : AppColors.transColor,
                                   width: 1.5,
                                 ),
                               ),
                               child: CircleAvatar(
-                                radius: 10,
-                                backgroundImage: NetworkImage(item.imageUrl!),
+                                radius: 16,
+                                foregroundImage: NetworkImage(item.imageUrl!),
                               ),
                             )
                           else
                             Icon(
                               item.icon,
-                              color: isSelected ? Colors.white : Colors.grey,
+                              color: isSelected
+                                  ? AppColors.primaryText
+                                  : AppColors.greyColor,
                               size: 20,
                             ),
 
@@ -158,7 +162,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                               child: Text(
                                 item.title,
                                 style: const TextStyle(
-                                  color: Colors.white,
+                                  color: AppColors.primaryText,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12,
                                 ),
@@ -229,30 +233,34 @@ class DashboardTab extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Good Morning\nPrabhat",
+                      AppStrings.greetingHeader,
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.primaryText,
                         height: 1.2,
                       ),
                     ),
                     IconButton(
                       onPressed: () {},
                       icon: const Icon(Icons.drag_handle,
-                          color: Colors.white, size: 28),
+                          color: AppColors.primaryText, size: 28),
                     ),
                   ],
                 ),
                 const SizedBox(height: 24),
                 TextField(
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(
+                    color: AppColors.primaryText,
+                  ),
                   decoration: InputDecoration(
                     hintText: "Search Location",
-                    hintStyle:
-                        const TextStyle(color: Colors.grey, fontSize: 14),
-                    prefixIcon: const Icon(Icons.search, color: Colors.grey),
-                    suffixIcon: const Icon(Icons.mic_none, color: Colors.grey),
+                    hintStyle: const TextStyle(
+                        color: AppColors.greyColor, fontSize: 14),
+                    prefixIcon:
+                        const Icon(Icons.search, color: AppColors.greyColor),
+                    suffixIcon:
+                        const Icon(Icons.mic_none, color: AppColors.greyColor),
                     filled: true,
                     fillColor: const Color(0xFF1E1E1E),
                     contentPadding: const EdgeInsets.symmetric(vertical: 14),
@@ -353,7 +361,7 @@ class _StackedLocationCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.4),
+                    color: AppColors.background.withOpacity(0.4),
                     blurRadius: 12,
                     offset: const Offset(0, 6),
                   ),
@@ -368,7 +376,7 @@ class _StackedLocationCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.primaryText,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -402,13 +410,13 @@ class _StatTile extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(color: Colors.grey, fontSize: 12),
+          style: const TextStyle(color: AppColors.greyColor, fontSize: 12),
         ),
         const SizedBox(height: 4),
         Text(
           value,
           style: const TextStyle(
-            color: Colors.white,
+            color: AppColors.primaryText,
             fontWeight: FontWeight.bold,
             fontSize: 13,
           ),

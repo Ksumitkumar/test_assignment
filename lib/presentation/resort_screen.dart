@@ -24,8 +24,8 @@ class ResortScreen extends StatelessWidget {
                   center: Alignment(1.2, -0.8),
                   radius: 1.2,
                   colors: [
-                    Color(0xFF003848),
-                    Colors.transparent,
+                    AppColors.topRightColor,
+                    AppColors.transColor,
                   ],
                   stops: [0.0, 1.0],
                 ),
@@ -41,8 +41,8 @@ class ResortScreen extends StatelessWidget {
                   center: Alignment(-2.0, 0.9),
                   radius: 1.2,
                   colors: [
-                    Color(0xFF003848),
-                    Colors.transparent,
+                    AppColors.bottomLeftColor,
+                    AppColors.transColor,
                   ],
                   stops: [0.0, 1.0],
                 ),
@@ -84,12 +84,12 @@ class ResortScreen extends StatelessWidget {
                             color: const Color(0xFF1C1C1E),
                             borderRadius: BorderRadius.circular(28),
                             border: Border.all(
-                              color: Colors.white.withOpacity(0.06),
+                              color: AppColors.primaryText.withOpacity(0.06),
                               width: 1,
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.4),
+                                color: AppColors.background.withOpacity(0.4),
                                 blurRadius: 15,
                                 offset: const Offset(0, 8),
                               ),
@@ -116,7 +116,7 @@ class ResortScreen extends StatelessWidget {
                                         Text(
                                           AppStrings.hostedBy,
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: AppColors.primaryText,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15,
                                           ),
@@ -125,7 +125,7 @@ class ResortScreen extends StatelessWidget {
                                         Text(
                                           AppStrings.lifestyle,
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: AppColors.primaryText,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15,
                                           ),
@@ -144,14 +144,14 @@ class ResortScreen extends StatelessWidget {
                                 children: [
                                   const Icon(
                                     Icons.star,
-                                    color: Colors.white, // White star
+                                    color: AppColors.primaryText, // White star
                                     size: 13,
                                   ),
                                   const SizedBox(width: 4),
                                   const Text(
                                     "4.9",
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: AppColors.primaryText,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
                                     ),
@@ -159,7 +159,7 @@ class ResortScreen extends StatelessWidget {
                                   const SizedBox(width: 15),
                                   Text("|",
                                       style: TextStyle(
-                                        color: Colors.grey,
+                                        color: AppColors.greyColor,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )),
@@ -167,14 +167,14 @@ class ResortScreen extends StatelessWidget {
                                   Text(
                                     "${AppStrings.reviewsText}",
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: AppColors.primaryText,
                                       fontSize: 12,
                                     ),
                                   ),
                                   const SizedBox(width: 15),
                                   Text("|",
                                       style: TextStyle(
-                                        color: Colors.grey,
+                                        color: AppColors.greyColor,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )),
@@ -182,7 +182,7 @@ class ResortScreen extends StatelessWidget {
                                   const Text(
                                     "OCT 24–26",
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: AppColors.primaryText,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 11,
                                       letterSpacing: 0.6,
@@ -203,7 +203,7 @@ class ResortScreen extends StatelessWidget {
                                     ),
                                     child: const Icon(
                                       Icons.notifications_none_rounded,
-                                      color: Colors.white,
+                                      color: AppColors.primaryText,
                                       size: 18,
                                     ),
                                   ),
@@ -212,7 +212,7 @@ class ResortScreen extends StatelessWidget {
                                     child: Text(
                                       "1155 Rue Sherbrooke Ouest, Toronto, Canada H3A 2N3",
                                       style: TextStyle(
-                                        color: Colors.grey,
+                                        color: AppColors.greyColor,
                                         fontSize: 12,
                                         height: 1.3,
                                       ),
@@ -239,7 +239,7 @@ class ResortScreen extends StatelessWidget {
                       const Text(
                         AppStrings.descriptionTitle,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.primaryText,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
@@ -248,7 +248,7 @@ class ResortScreen extends StatelessWidget {
                       Text(
                         AppStrings.experiencDes,
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.65),
+                          color: AppColors.primaryText.withOpacity(0.65),
                           fontSize: 13,
                           height: 1.5,
                         ),

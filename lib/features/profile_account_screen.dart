@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/app_color.dart';
+
 class ProfileAccountScreen extends StatelessWidget {
   const ProfileAccountScreen({super.key});
 
@@ -65,8 +67,8 @@ class ProfileAccountScreen extends StatelessWidget {
                       -1.0), // Changed -1.2 to 1.2 to position at top-right
                   radius: 1.2,
                   colors: [
-                    Color(0xFF003848),
-                    Colors.transparent,
+                    AppColors.topRightColor,
+                    AppColors.transColor,
                   ],
                   stops: [0.0, 1.0],
                 ),
@@ -82,8 +84,8 @@ class ProfileAccountScreen extends StatelessWidget {
                   center: Alignment(-1.2, 1.0),
                   radius: 1.2,
                   colors: [
-                    Color(0xFF003848),
-                    Colors.transparent,
+                    AppColors.bottomLeftColor,
+                    AppColors.transColor,
                   ],
                   stops: [0.0, 1.0],
                 ),
@@ -111,7 +113,7 @@ class ProfileAccountScreen extends StatelessWidget {
                     color: const Color(0xFF1C1C1E),
                     borderRadius: BorderRadius.circular(22),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.06),
+                      color: AppColors.primaryText.withOpacity(0.06),
                       width: 1,
                     ),
                   ),
@@ -122,13 +124,13 @@ class ProfileAccountScreen extends StatelessWidget {
                     ),
                     leading: Icon(
                       item['icon'] as IconData,
-                      color: Colors.white.withOpacity(0.8),
+                      color: AppColors.primaryText.withOpacity(0.8),
                       size: 20,
                     ),
                     title: Text(
                       item['title'] as String,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: AppColors.primaryText,
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         letterSpacing: -0.2,
@@ -137,7 +139,7 @@ class ProfileAccountScreen extends StatelessWidget {
                     subtitle: Text(
                       item['sub'] as String,
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.45),
+                        color: AppColors.primaryText.withOpacity(0.45),
                         fontSize: 11,
                         height: 1.3,
                       ),
@@ -152,14 +154,14 @@ class ProfileAccountScreen extends StatelessWidget {
                               color: const Color(0xFF3B2E1E),
                               borderRadius: BorderRadius.circular(14),
                               border: Border.all(
-                                color: const Color(0xFFD99036),
+                                color: AppColors.badgeYellow,
                                 width: 0.8,
                               ),
                             ),
                             child: const Text(
                               'Coming Soon',
                               style: TextStyle(
-                                color: Color(0xFFEAA64A),
+                                color: AppColors.badgeYellow,
                                 fontSize: 10,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -167,7 +169,7 @@ class ProfileAccountScreen extends StatelessWidget {
                           )
                         : Icon(
                             Icons.chevron_right_rounded,
-                            color: Colors.white.withOpacity(0.35),
+                            color: AppColors.primaryText.withOpacity(0.35),
                             size: 20,
                           ),
                   ),

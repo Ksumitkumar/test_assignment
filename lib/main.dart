@@ -4,7 +4,6 @@ import 'package:test_assignment/features/home_dashboard_scren.dart';
 import 'package:test_assignment/features/profile_account_screen.dart';
 import 'package:test_assignment/presentation/book_hotel_screen.dart';
 import 'package:test_assignment/presentation/resort_screen.dart';
-import 'package:test_assignment/presentation/splash_screen.dart';
 
 GoRouter goRouter = GoRouter(
   initialLocation: '/',
@@ -43,6 +42,10 @@ class MyApp extends StatelessWidget {
       title: 'Test Assignment',
       routerConfig: goRouter,
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+      ),
     );
   }
 }

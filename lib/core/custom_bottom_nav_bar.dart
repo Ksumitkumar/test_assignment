@@ -63,7 +63,9 @@ class CustomBottomNavBar extends StatelessWidget {
                   )
                 : Icon(
                     icon,
-                    color: isSelected ? Colors.white : AppColors.secondaryText,
+                    color: isSelected
+                        ? AppColors.primaryText
+                        : AppColors.secondaryText,
                     size: 20,
                   ),
             if (isSelected && label != null) ...[
@@ -71,7 +73,7 @@ class CustomBottomNavBar extends StatelessWidget {
               Text(
                 label,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: AppColors.primaryText,
                   fontWeight: FontWeight.bold,
                 ),
               ),

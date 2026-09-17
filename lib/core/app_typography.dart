@@ -28,6 +28,6 @@ class AppTypography {
   static const TextStyle button = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
-    color: Colors.white,
+    color: AppColors.primaryText,
   );
 }
