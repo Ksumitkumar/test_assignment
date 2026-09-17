@@ -1,18 +1,20 @@
-# test_assignment
+# Hotel Booking & Dashboard App
 
-A new Flutter project.
+A pixel-perfect Flutter application built as a technical assignment. Features a custom dark-mode theme with radial cyan background gradients, animated circular floating navigation bar, interactive calendar view, and declarative routing via GoRouter.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+##  Requirements
 
-A few resources to get you started if this is your first Flutter project:
+* **Flutter SDK**: `>=3.16.0` (Dart `3.2.0` or higher)
+* **Target Platforms**: Android, iOS
+* **IDE**: VS Code / Android Studio
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# test_assignment
+##  Project Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone <https://github.com/Ksumitkumar/test_assignment.git>
+   cd test_assignment
