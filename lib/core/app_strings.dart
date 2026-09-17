@@ -12,6 +12,14 @@ class AppStrings {
   static const String availableLabel = 'Available';
   static const String priceLabel = 'Price';
   static const String dashboardNav = 'Dashboard';
+  static const String hotelResorts = 'Hotels Resort';
+  static const String bookingHotel = 'Booking Hotel';
+  static const String account = 'Account';
+  static const String starText = '4.9';
+  static const String bookingDateText = 'OCT 24–26';
+  static const String comingSoonText = 'Coming Soon';
+  static const String hotelNameText =
+      '1155 Rue Sherbrooke Ouest, Toronto, Canada H3A 2N3';
 
   // Detail Screen
   static const String hostedBy = 'Hosted by Trang Luxury,';

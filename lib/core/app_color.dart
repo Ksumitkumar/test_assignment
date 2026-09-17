@@ -13,4 +13,6 @@ class AppColors {
   static const Color transColor = Colors.transparent;
   static const Color topRightColor = Color(0xFF003848);
   static const Color bottomLeftColor = Color(0xFF003848);
+  static const Color darkGreyColor = Color(0xFF1E1E1E);
+  static const Color darkColor = Color(0xFF1C1C1E);
 }

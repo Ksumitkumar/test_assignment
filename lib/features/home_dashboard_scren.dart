@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_assignment/core/app_strings.dart';
 
 import '../core/app_color.dart';
+import '../core/app_spacing.dart';
 import '../data/location_data.dart';
 import '../presentation/book_hotel_screen.dart';
 import '../presentation/resort_screen.dart';
@@ -20,11 +21,12 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
   // Nav tab items combining Icons and dynamic Image URLs
 
   final List<NavTabItem> _navItems = const [
-    NavTabItem(title: "Dashboard", icon: Icons.home),
-    NavTabItem(title: "Hotels Resort", icon: Icons.flight_outlined),
-    NavTabItem(title: "Booking Hotel", icon: Icons.calendar_today_outlined),
+    NavTabItem(title: AppStrings.dashboardNav, icon: Icons.home),
+    NavTabItem(title: AppStrings.hotelResorts, icon: Icons.flight_outlined),
     NavTabItem(
-      title: "Account",
+        title: AppStrings.bookingHotel, icon: Icons.calendar_today_outlined),
+    NavTabItem(
+      title: AppStrings.account,
       imageUrl: 'https://i.pravatar.cc/100',
     ),
   ];
@@ -122,7 +124,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: isSelected
-                            ? const Color(0xFF0088FF)
+                            ? AppColors.primaryBlue
                             : AppColors.transColor,
                         borderRadius: BorderRadius.circular(25),
                       ),
@@ -227,7 +229,7 @@ class DashboardTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 16),
+                AppSpacing.vGapLg,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -248,13 +250,13 @@ class DashboardTab extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                AppSpacing.vGapXll,
                 TextField(
                   style: const TextStyle(
                     color: AppColors.primaryText,
                   ),
                   decoration: InputDecoration(
-                    hintText: "Search Location",
+                    hintText: AppStrings.searchLocationHint,
                     hintStyle: const TextStyle(
                         color: AppColors.greyColor, fontSize: 14),
                     prefixIcon:
@@ -262,7 +264,7 @@ class DashboardTab extends StatelessWidget {
                     suffixIcon:
                         const Icon(Icons.mic_none, color: AppColors.greyColor),
                     filled: true,
-                    fillColor: const Color(0xFF1E1E1E),
+                    fillColor: AppColors.darkGreyColor,
                     contentPadding: const EdgeInsets.symmetric(vertical: 14),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -270,7 +272,7 @@ class DashboardTab extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                AppSpacing.vGapLg
               ],
             ),
           ),
@@ -379,7 +381,7 @@ class _StackedLocationCard extends StatelessWidget {
                       color: AppColors.primaryText,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  AppSpacing.vGapMd,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -388,7 +390,7 @@ class _StackedLocationCard extends StatelessWidget {
                       _StatTile(label: "Price", value: price),
                     ],
                   ),
-                  const SizedBox(height: 12),
+                  AppSpacing.vGapMd,
                 ],
               ),
             ),
@@ -412,7 +414,7 @@ class _StatTile extends StatelessWidget {
           label,
           style: const TextStyle(color: AppColors.greyColor, fontSize: 12),
         ),
-        const SizedBox(height: 4),
+        AppSpacing.vGapXs,
         Text(
           value,
           style: const TextStyle(

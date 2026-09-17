@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_assignment/core/app_strings.dart';
 
 import '../core/app_color.dart';
 
@@ -52,11 +53,13 @@ class ProfileAccountScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFF090D12),
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           // 1. Dark Base Background
-          Container(color: const Color(0xFF0B1015)),
+          Container(
+            color: AppColors.background,
+          ),
 
           // 2. Top-Right Cyan Glow
           Positioned.fill(
@@ -103,7 +106,7 @@ class ProfileAccountScreen extends StatelessWidget {
                 bottom: 120,
               ),
               itemCount: options.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 10),
+              separatorBuilder: (_, __) => const SizedBox(height: 16),
               itemBuilder: (context, index) {
                 final item = options[index];
                 final isComingSoon = item['isComingSoon'] == true;
@@ -111,21 +114,29 @@ class ProfileAccountScreen extends StatelessWidget {
                 return Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFF1C1C1E),
-                    borderRadius: BorderRadius.circular(22),
+                    borderRadius: BorderRadius.circular(50),
                     border: Border.all(
                       color: AppColors.primaryText.withOpacity(0.06),
                       width: 1,
                     ),
                   ),
                   child: ListTile(
+                    dense: true, // Shrinks minimum height constraints
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 16,
-                      vertical: 2,
+                      vertical: 0,
                     ),
-                    leading: Icon(
-                      item['icon'] as IconData,
-                      color: AppColors.primaryText.withOpacity(0.8),
-                      size: 20,
+                    leading: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryText.withOpacity(0.05),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        item['icon'] as IconData,
+                        color: AppColors.primaryText.withOpacity(0.8),
+                        size: 20,
+                      ),
                     ),
                     title: Text(
                       item['title'] as String,
@@ -153,13 +164,13 @@ class ProfileAccountScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: const Color(0xFF3B2E1E),
                               borderRadius: BorderRadius.circular(14),
-                              border: Border.all(
-                                color: AppColors.badgeYellow,
-                                width: 0.8,
-                              ),
+                              // border: Border.all(
+                              //   color: AppColors.badgeYellow,
+                              //   width: 0.8,
+                              // ),
                             ),
                             child: const Text(
-                              'Coming Soon',
+                              '${AppStrings.comingSoonText}',
                               style: TextStyle(
                                 color: AppColors.badgeYellow,
                                 fontSize: 10,
@@ -169,7 +180,7 @@ class ProfileAccountScreen extends StatelessWidget {
                           )
                         : Icon(
                             Icons.chevron_right_rounded,
-                            color: AppColors.primaryText.withOpacity(0.35),
+                            color: AppColors.primaryText,
                             size: 20,
                           ),
                   ),

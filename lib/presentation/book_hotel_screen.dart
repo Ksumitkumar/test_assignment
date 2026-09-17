@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_assignment/core/app_strings.dart';
 
 import '../core/app_color.dart';
+import '../core/app_spacing.dart';
 import '../core/app_typography.dart';
 
 class BookHotelScreen extends StatelessWidget {
@@ -10,11 +11,13 @@ class BookHotelScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0B1015),
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           // 1. Dark Base Background
-          Container(color: const Color(0xFF0B1015)),
+          Container(
+            color: AppColors.background,
+          ),
 
           // 2. Top-Right Cyan Glow
           Positioned.fill(
@@ -57,8 +60,10 @@ class BookHotelScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  AppSpacing.vGapXll,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +72,7 @@ class BookHotelScreen extends StatelessWidget {
                             AppStrings.nightStayHeader,
                             style: AppTypography.header,
                           ),
-                          SizedBox(height: 4),
+                          AppSpacing.vGapXs,
                           Text(
                             AppStrings.stayDatesSubtitle,
                             style: AppTypography.caption,
@@ -83,11 +88,11 @@ class BookHotelScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 30),
+                  AppSpacing.vGapXxll,
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF1C1C1E),
+                      color: AppColors.darkColor,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
                         color: AppColors.primaryText.withOpacity(0.06),
@@ -100,7 +105,7 @@ class BookHotelScreen extends StatelessWidget {
                           AppStrings.bookingDate,
                           style: AppTypography.subheader,
                         ),
-                        const SizedBox(height: 16),
+                        AppSpacing.vGapLg,
                         GridView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
@@ -119,24 +124,43 @@ class BookHotelScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  // ElevatedButton(
-                  //   style: ElevatedButton.styleFrom(
-                  //     // backgroundColor: AppColors.primaryBlue,
-                  //     minimumSize: const Size(double.infinity, 50),
-                  //     shape: RoundedRectangleBorder(
-                  //       borderRadius: BorderRadius.circular(25),
-                  //     ),
-                  //   ),
-                  //   onPressed: () {},
-                  //   child: const Text(
-                  //     AppStrings.bookingButton,
-                  //     style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontWeight: FontWeight.bold,
-                  //     ),
-                  //   ),
-                  // ),
+                  AppSpacing.vGapLg,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Left Arrow Button
+                      IconButton(
+                        onPressed: () {},
+                        style: IconButton.styleFrom(
+                          backgroundColor:
+                              AppColors.primaryBlue, // Your cyan color
+                          shape: const CircleBorder(),
+                          minimumSize: const Size(36, 36),
+                        ),
+                        icon: const Icon(
+                          Icons.chevron_left_rounded,
+                          color: AppColors.primaryText,
+                          size: 20,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      // Right Arrow Button
+                      IconButton(
+                        onPressed: () {},
+                        style: IconButton.styleFrom(
+                          backgroundColor:
+                              AppColors.primaryBlue, // Your cyan color
+                          shape: const CircleBorder(),
+                          minimumSize: const Size(36, 36),
+                        ),
+                        icon: const Icon(
+                          Icons.chevron_right_rounded,
+                          color: AppColors.primaryText,
+                          size: 20,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

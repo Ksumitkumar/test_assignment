@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_assignment/core/app_spacing.dart';
 import 'package:test_assignment/core/app_strings.dart';
 
 import '../core/app_color.dart';
@@ -68,7 +69,7 @@ class ResortScreen extends StatelessWidget {
                         child: Image.asset(
                           'assets/images/background_image.jpeg',
                           width: double.infinity,
-                          height: 240,
+                          height: 230,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -102,7 +103,7 @@ class ResortScreen extends StatelessWidget {
                               const Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 22,
+                                    radius: 30,
                                     backgroundImage: AssetImage(
                                       'assets/images/person.jpeg',
                                     ),
@@ -135,7 +136,7 @@ class ResortScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 14),
+                              AppSpacing.vGapMds,
 
                               // Rating, Reviews & Date Row
                               // Rating, Reviews & Date Row (Matching Figma directly)
@@ -149,7 +150,7 @@ class ResortScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 4),
                                   const Text(
-                                    "4.9",
+                                    "${AppStrings.starText}",
                                     style: TextStyle(
                                       color: AppColors.primaryText,
                                       fontWeight: FontWeight.w600,
@@ -180,7 +181,7 @@ class ResortScreen extends StatelessWidget {
                                       )),
                                   const SizedBox(width: 15),
                                   const Text(
-                                    "OCT 24–26",
+                                    "${AppStrings.bookingDate}",
                                     style: TextStyle(
                                       color: AppColors.primaryText,
                                       fontWeight: FontWeight.w600,
@@ -190,7 +191,7 @@ class ResortScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 14),
+                              AppSpacing.vGapMds,
 
                               // Location Row
                               Row(
@@ -198,7 +199,7 @@ class ResortScreen extends StatelessWidget {
                                   Container(
                                     padding: const EdgeInsets.all(8),
                                     decoration: const BoxDecoration(
-                                      color: Color(0xFF0088FF),
+                                      color: AppColors.primaryBlue,
                                       shape: BoxShape.circle,
                                     ),
                                     child: const Icon(
@@ -210,7 +211,7 @@ class ResortScreen extends StatelessWidget {
                                   const SizedBox(width: 10),
                                   const Expanded(
                                     child: Text(
-                                      "1155 Rue Sherbrooke Ouest, Toronto, Canada H3A 2N3",
+                                      "${AppStrings.hotelNameText}",
                                       style: TextStyle(
                                         color: AppColors.greyColor,
                                         fontSize: 12,
@@ -220,6 +221,7 @@ class ResortScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              AppSpacing.vGapXll,
                             ],
                           ),
                         ),
@@ -228,7 +230,7 @@ class ResortScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                AppSpacing.vGapXl,
 
                 // Description Title & Text (Sits directly on full-screen gradient)
                 Padding(
