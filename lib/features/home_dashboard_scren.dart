@@ -34,11 +34,17 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
   ];
 
   // Tab screens matching tab indices
-  final List<Widget> _screens = const [
-    DashboardTab(),
-    ResortScreen(),
-    BookHotelScreen(),
-    ProfileAccountScreen(),
+  late final List<Widget> _screens = [
+    const DashboardTab(),
+    const ResortScreen(),
+    BookHotelScreen(
+      onCancel: () {
+        setState(() {
+          _selectedIndex = 0; // Navigates back to Dashboard
+        });
+      },
+    ),
+    const ProfileAccountScreen(),
   ];
 
   @override
