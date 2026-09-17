@@ -9,10 +9,6 @@ GoRouter goRouter = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(path: '/', builder: (context, state) => HomeDashboardScreen()),
-    // GoRoute(
-    //   path: '/dashboard',
-    //   builder: (context, state) => HomeDashboardScren(),
-    // ),
     GoRoute(
       path: '/resort_screen',
       builder: (context, state) => ResortScreen(),

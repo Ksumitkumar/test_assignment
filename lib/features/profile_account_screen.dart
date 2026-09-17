@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test_assignment/core/app_strings.dart';
+import 'package:test_assignment/data/mock_data.dart';
 
 import '../core/app_color.dart';
 
@@ -8,50 +10,6 @@ class ProfileAccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final options = [
-      {
-        'icon': Icons.person_outline_rounded,
-        'title': 'Edit Profile',
-        'sub': 'Manage your professional profile',
-      },
-      {
-        'icon': Icons.person_add_alt_outlined,
-        'title': 'Account',
-        'sub': 'Manage account and login settings',
-      },
-      {
-        'icon': Icons.notifications_none_rounded,
-        'title': 'Notification',
-        'sub': 'Manage your notification preferences',
-      },
-      {
-        'icon': Icons.palette_outlined,
-        'title': 'Appearance',
-        'sub': 'Customize your app experience',
-      },
-      {
-        'icon': Icons.help_outline_rounded,
-        'title': 'Help & Feedback',
-        'sub': 'Get help or share feedback',
-      },
-      {
-        'icon': Icons.person_add_outlined,
-        'title': 'Invite a friend',
-        'sub': 'Invite friends to NextRole app',
-      },
-      {
-        'icon': Icons.shield_outlined,
-        'title': 'Privacy & Security',
-        'sub': 'Manage privacy and data settings',
-      },
-      {
-        'icon': Icons.credit_card_outlined,
-        'title': 'Subscription',
-        'sub': 'Manage your plan and billing',
-        'isComingSoon': true,
-      },
-    ];
-
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Stack(
@@ -105,10 +63,10 @@ class ProfileAccountScreen extends StatelessWidget {
                 top: 18,
                 bottom: 120,
               ),
-              itemCount: options.length,
+              itemCount: AppMockData.options.length,
               separatorBuilder: (_, __) => const SizedBox(height: 16),
               itemBuilder: (context, index) {
-                final item = options[index];
+                final item = AppMockData.options[index];
                 final isComingSoon = item['isComingSoon'] == true;
 
                 return Container(
@@ -140,7 +98,7 @@ class ProfileAccountScreen extends StatelessWidget {
                     ),
                     title: Text(
                       item['title'] as String,
-                      style: const TextStyle(
+                      style: GoogleFonts.inter(
                         color: AppColors.primaryText,
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -149,7 +107,7 @@ class ProfileAccountScreen extends StatelessWidget {
                     ),
                     subtitle: Text(
                       item['sub'] as String,
-                      style: TextStyle(
+                      style: GoogleFonts.inter(
                         color: AppColors.primaryText.withOpacity(0.45),
                         fontSize: 11,
                         height: 1.3,
@@ -169,9 +127,9 @@ class ProfileAccountScreen extends StatelessWidget {
                               //   width: 0.8,
                               // ),
                             ),
-                            child: const Text(
+                            child: Text(
                               '${AppStrings.comingSoonText}',
-                              style: TextStyle(
+                              style: GoogleFonts.inter(
                                 color: AppColors.badgeYellow,
                                 fontSize: 10,
                                 fontWeight: FontWeight.w500,

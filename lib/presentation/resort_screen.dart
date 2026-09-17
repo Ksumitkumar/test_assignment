@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test_assignment/core/app_spacing.dart';
 import 'package:test_assignment/core/app_strings.dart';
 
@@ -10,12 +11,12 @@ class ResortScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0B1015),
+      backgroundColor: AppColors.background,
       body: Stack(
         fit: StackFit.expand,
         children: [
           // 1. Dark Base Background
-          Container(color: const Color(0xFF0B1015)),
+          Container(color: AppColors.background),
 
           // 2. Top-Right Cyan Glow (Covers screen top & card height)
           Positioned.fill(
@@ -100,15 +101,15 @@ class ResortScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               // Host Details Row
-                              const Row(
+                              Row(
                                 children: [
-                                  CircleAvatar(
+                                  const CircleAvatar(
                                     radius: 30,
                                     backgroundImage: AssetImage(
                                       'assets/images/person.jpeg',
                                     ),
                                   ),
-                                  SizedBox(width: 12),
+                                  const SizedBox(width: 12),
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
@@ -116,16 +117,16 @@ class ResortScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           AppStrings.hostedBy,
-                                          style: TextStyle(
+                                          style: GoogleFonts.inter(
                                             color: AppColors.primaryText,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15,
                                           ),
                                         ),
-                                        SizedBox(height: 2),
+                                        const SizedBox(height: 2),
                                         Text(
                                           AppStrings.lifestyle,
-                                          style: TextStyle(
+                                          style: GoogleFonts.inter(
                                             color: AppColors.primaryText,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15,
@@ -149,9 +150,9 @@ class ResortScreen extends StatelessWidget {
                                     size: 13,
                                   ),
                                   const SizedBox(width: 4),
-                                  const Text(
+                                  Text(
                                     "${AppStrings.starText}",
-                                    style: TextStyle(
+                                    style: GoogleFonts.inter(
                                       color: AppColors.primaryText,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
@@ -159,7 +160,7 @@ class ResortScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 15),
                                   Text("|",
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                         color: AppColors.greyColor,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
@@ -167,22 +168,22 @@ class ResortScreen extends StatelessWidget {
                                   const SizedBox(width: 15),
                                   Text(
                                     "${AppStrings.reviewsText}",
-                                    style: TextStyle(
+                                    style: GoogleFonts.inter(
                                       color: AppColors.primaryText,
                                       fontSize: 12,
                                     ),
                                   ),
                                   const SizedBox(width: 15),
                                   Text("|",
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                         color: AppColors.greyColor,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )),
                                   const SizedBox(width: 15),
-                                  const Text(
+                                  Text(
                                     "${AppStrings.bookingDate}",
-                                    style: TextStyle(
+                                    style: GoogleFonts.inter(
                                       color: AppColors.primaryText,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 11,
@@ -209,10 +210,10 @@ class ResortScreen extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 10),
-                                  const Expanded(
+                                  Expanded(
                                     child: Text(
                                       "${AppStrings.hotelNameText}",
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                         color: AppColors.greyColor,
                                         fontSize: 12,
                                         height: 1.3,
@@ -238,18 +239,20 @@ class ResortScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         AppStrings.descriptionTitle,
-                        style: TextStyle(
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
                           color: AppColors.primaryText,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          height: 1.4, // Match line height spacing from Figma
+                          letterSpacing: -0.1,
                         ),
                       ),
                       const SizedBox(height: 12),
                       Text(
                         AppStrings.experiencDes,
-                        style: TextStyle(
+                        style: GoogleFonts.inter(
                           color: AppColors.primaryText.withOpacity(0.65),
                           fontSize: 13,
                           height: 1.5,

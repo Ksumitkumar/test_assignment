@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test_assignment/core/app_strings.dart';
 
 import '../core/app_color.dart';
 import '../core/app_spacing.dart';
-import '../data/location_data.dart';
+import '../data/mock_data.dart';
 import '../presentation/book_hotel_screen.dart';
 import '../presentation/resort_screen.dart';
+import 'dashboard_tab.dart';
 import 'profile_account_screen.dart';
 
 class HomeDashboardScreen extends StatefulWidget {
@@ -167,7 +169,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                               padding: const EdgeInsets.only(left: 6.0),
                               child: Text(
                                 item.title,
-                                style: const TextStyle(
+                                style: GoogleFonts.inter(
                                   color: AppColors.primaryText,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12,
@@ -194,130 +196,6 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
   }
 }
 
-// ==========================================
-// TAB SCREENS & SUB-WIDGETS
-// ==========================================
-
-class DashboardTab extends StatelessWidget {
-  const DashboardTab({super.key});
-
-  // Sample Data List
-  final List<LocationData> locationList = const [
-    LocationData(
-      imageUrl:
-          'https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=600',
-      locationTitle: "Toronto, Canada",
-      distance: "150KM",
-      availableDates: "OCT 24–25",
-      price: "\$50.00",
-    ),
-    LocationData(
-      imageUrl:
-          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600',
-      locationTitle: "Toronto, Canada",
-      distance: "200KM",
-      availableDates: "NOV 01–05",
-      price: "\$75.00",
-    ),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // FIXED TOP SECTION (Header + Search Field)
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppSpacing.vGapLg,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      AppStrings.greetingHeader,
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryText,
-                        height: 1.2,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryText.withOpacity(0.05),
-                        shape: BoxShape.circle,
-                      ), // Makes the container fully circular
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.drag_handle,
-                              color: AppColors.primaryText, size: 28),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                AppSpacing.vGapXll,
-                TextField(
-                  style: const TextStyle(
-                    color: AppColors.primaryText,
-                  ),
-                  decoration: InputDecoration(
-                    hintText: AppStrings.searchLocationHint,
-                    hintStyle: const TextStyle(
-                        color: AppColors.greyColor, fontSize: 14),
-                    prefixIcon:
-                        const Icon(Icons.search, color: AppColors.greyColor),
-                    suffixIcon:
-                        const Icon(Icons.mic_none, color: AppColors.greyColor),
-                    filled: true,
-                    fillColor: AppColors.darkGreyColor,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 14),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-                AppSpacing.vGapLg
-              ],
-            ),
-          ),
-
-          // SCROLLABLE LIST SECTION BELOW SEARCH
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.only(
-                  left: 20.0, right: 20.0, top: 30.0, bottom: 110.0),
-              physics: const BouncingScrollPhysics(),
-              itemCount: locationList.length,
-              itemBuilder: (context, index) {
-                final item = locationList[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  child: _StackedLocationCard(
-                    imageUrl: item.imageUrl,
-                    locationTitle: item.locationTitle,
-                    distance: item.distance,
-                    availableDates: item.availableDates,
-                    price: item.price,
-                  ),
-                );
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
 /// Dynamic Model supporting Icons and Image URLs
 class NavTabItem {
   final String title;
@@ -329,114 +207,4 @@ class NavTabItem {
     this.icon,
     this.imageUrl,
   });
-}
-
-class _StackedLocationCard extends StatelessWidget {
-  final String imageUrl;
-  final String locationTitle;
-  final String distance;
-  final String availableDates;
-  final String price;
-
-  const _StackedLocationCard({
-    required this.imageUrl,
-    required this.locationTitle,
-    required this.distance,
-    required this.availableDates,
-    required this.price,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 250,
-      width: double.infinity,
-      child: Stack(
-        children: [
-          // Background Image
-          ClipRRect(
-            borderRadius: BorderRadius.circular(28),
-            child: Image.network(
-              imageUrl,
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-
-          // Overlaid Information Card Pinned to Bottom
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-              decoration: BoxDecoration(
-                color: const Color(0xFF1E1E1E),
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.background.withOpacity(0.4),
-                    blurRadius: 12,
-                    offset: const Offset(0, 6),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    locationTitle,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primaryText,
-                    ),
-                  ),
-                  AppSpacing.vGapMd,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _StatTile(label: "Distance", value: distance),
-                      _StatTile(label: "Available", value: availableDates),
-                      _StatTile(label: "Price", value: price),
-                    ],
-                  ),
-                  AppSpacing.vGapMd,
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _StatTile extends StatelessWidget {
-  final String label, value;
-  const _StatTile({required this.label, required this.value});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: const TextStyle(color: AppColors.greyColor, fontSize: 12),
-        ),
-        AppSpacing.vGapXs,
-        Text(
-          value,
-          style: const TextStyle(
-            color: AppColors.primaryText,
-            fontWeight: FontWeight.bold,
-            fontSize: 13,
-          ),
-        ),
-      ],
-    );
-  }
 }

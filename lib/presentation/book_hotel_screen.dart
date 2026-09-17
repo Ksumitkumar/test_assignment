@@ -65,7 +65,7 @@ class BookHotelScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -101,7 +101,7 @@ class BookHotelScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const Text(
+                        Text(
                           AppStrings.bookingDate,
                           style: AppTypography.subheader,
                         ),

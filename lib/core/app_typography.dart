@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_color.dart';
 
 class AppTypography {
-  static const TextStyle header = TextStyle(
+  static TextStyle header = GoogleFonts.inter(
     fontSize: 26,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryText,
   );
 
-  static const TextStyle subheader = TextStyle(
+  static TextStyle subheader = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     color: AppColors.primaryText,
   );
 
-  static const TextStyle body = TextStyle(
+  static TextStyle body = GoogleFonts.inter(
     fontSize: 14,
     color: AppColors.primaryText,
   );
 
-  static const TextStyle caption = TextStyle(
+  static TextStyle caption = GoogleFonts.inter(
     fontSize: 12,
     color: AppColors.secondaryText,
   );
 
-  static const TextStyle button = TextStyle(
+  static TextStyle button = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryText,
