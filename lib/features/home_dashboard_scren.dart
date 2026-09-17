@@ -119,14 +119,18 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                       padding: EdgeInsets.symmetric(
-                        horizontal: isSelected ? 16 : 8,
-                        vertical: 16,
+                        horizontal: isSelected ? 16 : 10,
+                        vertical: isSelected ? 12 : 10,
                       ),
                       decoration: BoxDecoration(
                         color: isSelected
                             ? AppColors.primaryBlue
-                            : AppColors.transColor,
-                        borderRadius: BorderRadius.circular(25),
+                            : AppColors.primaryText.withOpacity(0.08),
+                        shape: BoxShape
+                            .rectangle, // Keep rectangle shape for smooth interpolation
+                        borderRadius: BorderRadius.circular(isSelected
+                            ? 25
+                            : 50), // Animate border radius cleanly
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -144,7 +148,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                                 ),
                               ),
                               child: CircleAvatar(
-                                radius: 16,
+                                radius: 12,
                                 foregroundImage: NetworkImage(item.imageUrl!),
                               ),
                             )
@@ -153,8 +157,8 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                               item.icon,
                               color: isSelected
                                   ? AppColors.primaryText
-                                  : AppColors.greyColor,
-                              size: 20,
+                                  : AppColors.primaryText.withOpacity(0.7),
+                              size: 18,
                             ),
 
                           // Expanding animated title text
@@ -243,10 +247,19 @@ class DashboardTab extends StatelessWidget {
                         height: 1.2,
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.drag_handle,
-                          color: AppColors.primaryText, size: 28),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryText.withOpacity(0.05),
+                        shape: BoxShape.circle,
+                      ), // Makes the container fully circular
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.drag_handle,
+                              color: AppColors.primaryText, size: 28),
+                        ),
+                      ),
                     ),
                   ],
                 ),
